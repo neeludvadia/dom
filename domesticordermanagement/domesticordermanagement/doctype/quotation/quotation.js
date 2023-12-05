@@ -201,7 +201,7 @@ frappe.ui.form.on("Item Detail", {
 
 frappe.ui.form.on("Quotation",{
     onload(frm){
-        frappe.model.set_value('Quotation', data.doc.name, 'sales_person', frappe.session.user_fullname)
+        frm.doc.sales_person = frappe.session.user_fullname;
     },
    
     bill_to_party(frm){
