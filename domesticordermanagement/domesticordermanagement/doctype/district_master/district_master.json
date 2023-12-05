@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{district_name}-{##}",
+ "creation": "2023-11-04 22:19:25.833929",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "district_name",
+  "country_name",
+  "column_break_cism",
+  "state_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "District Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cism",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Country",
+   "options": "Country Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-06 15:19:18.785436",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "District Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "district_name"
+}

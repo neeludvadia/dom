@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CUST-{######}",
+ "creation": "2023-11-01 17:37:29.321440",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_basic_details_section",
+  "customer_code",
+  "contact_person_1",
+  "customer_owner_sales_person",
+  "pan",
+  "telephone",
+  "fax",
+  "drug_license_no_1",
+  "bank_name",
+  "ifsc_code",
+  "column_break_iqvh",
+  "customer_name",
+  "customer_type",
+  "payment_terms",
+  "gstin_no",
+  "mobile",
+  "drug_license_no_2",
+  "ibanaccount_number",
+  "is_active",
+  "section_break_qdvl",
+  "customer_address_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Basic Details"
+  },
+  {
+   "fieldname": "customer_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "contact_person_1",
+   "fieldtype": "Data",
+   "label": "Contact Person 1"
+  },
+  {
+   "fieldname": "customer_type",
+   "fieldtype": "Link",
+   "label": "Customer Type",
+   "options": "Distribution Channel",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "label": "PAN"
+  },
+  {
+   "fieldname": "telephone",
+   "fieldtype": "Data",
+   "label": "Telephone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "FAX"
+  },
+  {
+   "fieldname": "drug_license_no_2",
+   "fieldtype": "Data",
+   "label": "Drug License No 2"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "column_break_iqvh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_owner_sales_person",
+   "fieldtype": "Link",
+   "label": "Customer Owner (Sales Person)",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Link",
+   "label": "Payment Terms",
+   "options": "Payment Terms"
+  },
+  {
+   "fieldname": "gstin_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSTN No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Phone",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "drug_license_no_1",
+   "fieldtype": "Data",
+   "label": "Drug License No 1"
+  },
+  {
+   "fieldname": "ibanaccount_number",
+   "fieldtype": "Data",
+   "label": "IBAN/Account Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_qdvl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 10,
+   "fieldname": "customer_address_details",
+   "fieldtype": "Table",
+   "label": "Customer Address Details",
+   "options": "Customer Address Details"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-02 17:06:13.085912",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Customer Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer_code",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name"
+}

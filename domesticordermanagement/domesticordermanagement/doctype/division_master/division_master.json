@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-16 10:13:45.790474",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "division_code",
+  "division_name",
+  "company_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "division_code",
+   "fieldtype": "Data",
+   "label": "Division Code"
+  },
+  {
+   "fieldname": "division_name",
+   "fieldtype": "Data",
+   "label": "Division Name"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Code",
+   "options": "Company Master",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-20 15:54:35.428568",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Division Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "division_name"
+}

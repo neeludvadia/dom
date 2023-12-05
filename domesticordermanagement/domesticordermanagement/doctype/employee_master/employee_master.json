@@ -1,0 +1,171 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{employee_code}-{employee_name}",
+ "creation": "2023-11-02 16:36:20.001805",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_paxb",
+  "entity",
+  "division",
+  "employee_code",
+  "employee_name",
+  "department",
+  "designation",
+  "doj",
+  "user_type",
+  "state_dy",
+  "column_break_hfed",
+  "contact",
+  "email_id",
+  "location",
+  "password",
+  "reporting_to",
+  "secondary_reporting",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Entity",
+   "options": "Company Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "label": "Division",
+   "options": "Division Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_code",
+   "fieldtype": "Data",
+   "label": "Employee Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doj",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user_type",
+   "fieldtype": "Link",
+   "label": "User Type",
+   "options": "User Role",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hfed",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Phone",
+   "label": "Contact No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "label": "Password",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reporting_to",
+   "fieldtype": "Link",
+   "label": "Reporting To",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "secondary_reporting",
+   "fieldtype": "Link",
+   "label": "Secondary Reporting",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_paxb",
+   "fieldtype": "Column Break",
+   "options": "state_dy"
+  },
+  {
+   "fetch_from": ".",
+   "fieldname": "state_dy",
+   "fieldtype": "Link",
+   "label": "State Dynamic",
+   "options": "City"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-20 15:32:20.509695",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Employee Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

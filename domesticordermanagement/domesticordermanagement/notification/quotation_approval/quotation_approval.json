@@ -1,0 +1,34 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2023-11-29 20:40:14.693188",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Quotation",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Sales Quotation Approval Request:</p>\n\n<h3>Sales Quotation Approval Request</h3>\n\n<p>Request for new Sales Quotation Approval on {{doc.quotation_date}} with Number {{doc.name}}.\n</p><br/>\n\n<ul>\n<li>Quotation No : {{doc.name}}</li>\n<li>Customer Code : {{ doc.bill_to_party }}</li>\n<li>Bill to Party : {{ doc.bill_to_party }}</li>\n<li>Ship to Party : {{ doc.ship_to_party }}</li>\n<li>Purchase No. : {{ doc.purchase_order_no }}</li>\n<li>Payment Terms : {{doc.payment_terms}}</li>\n<li>Status : {{doc.status}}</li>\n<li>Delivery Date : {{ doc.delivery_date }}</li>\n</ul>\n\n<p>Please approve<br/></p>\n",
+ "message_type": "Markdown",
+ "modified": "2023-12-02 14:46:53.623573",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Quotation Approval",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "cc": "neel.udvadia@merillife.com",
+   "condition": "doc.status=='Reporting Head Pending'",
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Sales Manager"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "Frappe Email",
+ "sender_email": "imranshaikh979@gmail.com",
+ "subject": "Request for Quotation Approval - Quotation No : {{ doc.name}}",
+ "value_changed": "status"
+}

@@ -1,0 +1,322 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SO/{####}",
+ "creation": "2023-11-06 15:50:29.838196",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_order_creation_section",
+  "header_details_column",
+  "quotation_no",
+  "order_category",
+  "purchase_order_no",
+  "bill_to_party",
+  "bill_to_address",
+  "sales_person",
+  "payment_terms",
+  "payment_confirm_",
+  "fg_stock_available_",
+  "status",
+  "_column",
+  "so_date",
+  "distribution_channel",
+  "purchase_order_date",
+  "ship_to_party",
+  "ship_to_address",
+  "delivery_date",
+  "pricing_date",
+  "total_amount",
+  "sgst_value",
+  "cgst_value",
+  "igst_value",
+  "section_break_newo",
+  "item_details",
+  "delivery_schedule",
+  "remarks",
+  "tab_2_tab",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_order_creation_section",
+   "fieldtype": "Section Break",
+   "label": "Header Details"
+  },
+  {
+   "fieldname": "header_details_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "quotation_no.order_category",
+   "fieldname": "order_category",
+   "fieldtype": "Data",
+   "label": "Order Category"
+  },
+  {
+   "fetch_from": "quotation_no.purchase_order_no",
+   "fieldname": "purchase_order_no",
+   "fieldtype": "Data",
+   "label": "Purchase Order No"
+  },
+  {
+   "fetch_from": "quotation_no.bill_to_party",
+   "fieldname": "bill_to_party",
+   "fieldtype": "Data",
+   "label": "Bill To Party"
+  },
+  {
+   "fetch_from": "quotation_no.ship_to_party",
+   "fieldname": "ship_to_party",
+   "fieldtype": "Data",
+   "label": "Ship To Party"
+  },
+  {
+   "fieldname": "_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "quotation_no.distribution_channel",
+   "fieldname": "distribution_channel",
+   "fieldtype": "Data",
+   "label": "Distribution Channel"
+  },
+  {
+   "fetch_from": "quotation_no.purchase_order_date",
+   "fieldname": "purchase_order_date",
+   "fieldtype": "Date",
+   "label": "Purchase Order Date"
+  },
+  {
+   "fetch_from": "quotation_no.bill_to_address",
+   "fieldname": "bill_to_address",
+   "fieldtype": "Small Text",
+   "label": "Bill To Address"
+  },
+  {
+   "fetch_from": "quotation_no.ship_to_address",
+   "fieldname": "ship_to_address",
+   "fieldtype": "Small Text",
+   "label": "Ship To Address"
+  },
+  {
+   "fetch_from": "quotation_no.sales_person",
+   "fieldname": "sales_person",
+   "fieldtype": "Data",
+   "label": "Sales Person"
+  },
+  {
+   "fetch_from": "quotation_no.payment_terms",
+   "fieldname": "payment_terms",
+   "fieldtype": "Data",
+   "label": "Payment Terms"
+  },
+  {
+   "fetch_from": "quotation_no.delivery_date",
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fetch_from": "quotation_no.pricing_date",
+   "fieldname": "pricing_date",
+   "fieldtype": "Date",
+   "label": "Pricing Date"
+  },
+  {
+   "fieldname": "section_break_newo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2"
+  },
+  {
+   "fetch_from": "quotation_no.total_amount",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fetch_from": "quotation_no.sgst_value",
+   "fieldname": "sgst_value",
+   "fieldtype": "Currency",
+   "label": "SGST Value"
+  },
+  {
+   "fetch_from": "quotation_no.cgst_value",
+   "fieldname": "cgst_value",
+   "fieldtype": "Currency",
+   "label": "CGST Value"
+  },
+  {
+   "fetch_from": "quotation_no.igst_value",
+   "fieldname": "igst_value",
+   "fieldtype": "Currency",
+   "label": "IGST Value"
+  },
+  {
+   "fieldname": "delivery_schedule",
+   "fieldtype": "Table",
+   "label": "Delivery Schedule",
+   "options": "Delivery Schedule"
+  },
+  {
+   "fieldname": "item_details",
+   "fieldtype": "Table",
+   "label": "Item Details",
+   "options": "Sales Order Item"
+  },
+  {
+   "fieldname": "quotation_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Quotation No",
+   "options": "Quotation",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "payment_confirm_",
+   "fieldtype": "Check",
+   "label": "Payment Confirm ?",
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "fg_stock_available_",
+   "fieldtype": "Check",
+   "label": "FG Stock Available ?",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nCC Team Approved\nCC Team Pending\nPPIC Team Approved\nPPIC Team Pending\nApproved\nReject"
+  },
+  {
+   "default": "Today",
+   "fieldname": "so_date",
+   "fieldtype": "Date",
+   "label": "SO Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sales Order Creation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-02 18:15:11.652157",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Sales Order Creation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CC Team",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PPIC Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CC Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PPIC Team",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

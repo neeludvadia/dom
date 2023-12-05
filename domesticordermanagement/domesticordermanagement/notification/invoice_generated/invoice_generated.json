@@ -1,0 +1,42 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2023-12-01 23:55:20.648504",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Invoice",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p><p>Invoice is Generated for {{doc.bill_to_party}} with Invoice No {{doc.name}} on {{doc.invoice_date}}</p><br/></p>\n\n<ul>\n<li>Invoice No : {{doc.name}}</li>\n<li>Sales Order No : {{doc.sales_order_no}}</li>\n<li>Customer Code : {{ doc.bill_to_party }}</li>\n<li>Ship to Party : {{ doc.ship_to_party }}</li>\n<li>Purchase No. : {{ doc.purchase_order_no }}</li>\n<li>Required Delivery Date : {{ doc.delivery_date }}</li>\n<li>Order Type : {{ doc.order_category }}</li>\n</ul>\n",
+ "message_type": "Markdown",
+ "modified": "2023-12-02 17:59:27.264450",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Invoice Generated",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "cc": "imran.shaikh@merillife.com",
+   "condition": "",
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Sales User"
+  },
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Sales Manager"
+  },
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Order Punching Team"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 1,
+ "sender": "Frappe Email",
+ "sender_email": "imranshaikh979@gmail.com",
+ "subject": "New Invoice Generated - Invoice Number -{{ doc.name}}",
+ "value_changed": "status"
+}

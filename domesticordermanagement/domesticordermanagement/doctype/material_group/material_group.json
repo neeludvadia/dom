@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:material_group_code",
+ "creation": "2023-11-03 14:55:23.957131",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "material_category_name",
+  "material_group_name",
+  "column_break_lkpq",
+  "material_group_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_category_name",
+   "fieldtype": "Link",
+   "label": "Material Category Name",
+   "options": "Material Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "material_group_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Material Group Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "material_group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Material Group Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lkpq",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-20 14:38:37.026548",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Material Group",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "material_group_code",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "material_group_name"
+}

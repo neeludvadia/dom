@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:hsn_code",
+ "creation": "2023-11-01 15:02:14.755067",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "hsn_code_and_description_section",
+  "hsn_code",
+  "column_break_spdb",
+  "hsn_code_description",
+  "gst_percentage_section",
+  "cgstp",
+  "ugstp",
+  "column_break_sozr",
+  "sgstp",
+  "igstp",
+  "tab_2_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "hsn_code_and_description_section",
+   "fieldtype": "Section Break",
+   "label": "HSN Code and Description"
+  },
+  {
+   "fieldname": "column_break_spdb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gst_percentage_section",
+   "fieldtype": "Section Break",
+   "label": "GST Percentage"
+  },
+  {
+   "fieldname": "cgstp",
+   "fieldtype": "Int",
+   "label": "CGST %"
+  },
+  {
+   "fieldname": "ugstp",
+   "fieldtype": "Int",
+   "label": "UGST%"
+  },
+  {
+   "fieldname": "column_break_sozr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sgstp",
+   "fieldtype": "Int",
+   "label": "SGST%"
+  },
+  {
+   "fieldname": "igstp",
+   "fieldtype": "Int",
+   "label": "IGST%"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2"
+  },
+  {
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "hsn_code_description",
+   "fieldtype": "Data",
+   "label": "HSN Code Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-23 15:39:14.825495",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "HSN Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "hsn_code"
+}

@@ -1,0 +1,233 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:INV-{#####}",
+ "creation": "2023-12-01 18:22:00.122794",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_order_no",
+  "order_category",
+  "purchase_order_no",
+  "bill_to_party",
+  "billto_address",
+  "sales_person",
+  "status",
+  "column_break_wwle",
+  "invoice_date",
+  "so_date",
+  "distribution_channel",
+  "purchase_order_date",
+  "ship_to_party",
+  "ship_to_address",
+  "delivery_date",
+  "pricing_date",
+  "total_amount",
+  "sgst_value",
+  "cgst_value",
+  "igst_value",
+  "section_break_awkp",
+  "invoice_item",
+  "invoice_delivery_table",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_order_no",
+   "fieldtype": "Link",
+   "label": "Sales Order No",
+   "options": "Sales Order Creation"
+  },
+  {
+   "fetch_from": "sales_order_no.order_category",
+   "fieldname": "order_category",
+   "fieldtype": "Data",
+   "label": "Order Category"
+  },
+  {
+   "fetch_from": "sales_order_no.purchase_order_no",
+   "fieldname": "purchase_order_no",
+   "fieldtype": "Data",
+   "label": "Purchase Order No"
+  },
+  {
+   "fetch_from": "sales_order_no.bill_to_party",
+   "fieldname": "bill_to_party",
+   "fieldtype": "Data",
+   "label": "Bill To Party"
+  },
+  {
+   "fetch_from": "sales_order_no.bill_to_address",
+   "fieldname": "billto_address",
+   "fieldtype": "Small Text",
+   "label": "BillTo Address"
+  },
+  {
+   "fetch_from": "sales_order_no.sales_person",
+   "fieldname": "sales_person",
+   "fieldtype": "Data",
+   "label": "Sales Person"
+  },
+  {
+   "fieldname": "column_break_wwle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "sales_order_no.distribution_channel",
+   "fieldname": "distribution_channel",
+   "fieldtype": "Data",
+   "label": "Distribution Channel"
+  },
+  {
+   "fetch_from": "sales_order_no.purchase_order_date",
+   "fieldname": "purchase_order_date",
+   "fieldtype": "Data",
+   "label": "Purchase Order Date"
+  },
+  {
+   "fetch_from": "sales_order_no.ship_to_party",
+   "fieldname": "ship_to_party",
+   "fieldtype": "Data",
+   "label": "Ship To Party"
+  },
+  {
+   "fetch_from": "sales_order_no.ship_to_address",
+   "fieldname": "ship_to_address",
+   "fieldtype": "Small Text",
+   "label": "Ship To Address"
+  },
+  {
+   "fetch_from": "sales_order_no.delivery_date",
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fetch_from": "sales_order_no.pricing_date",
+   "fieldname": "pricing_date",
+   "fieldtype": "Data",
+   "label": "Pricing Date"
+  },
+  {
+   "fetch_from": "sales_order_no.total_amount",
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "label": "Total Amount "
+  },
+  {
+   "fetch_from": "sales_order_no.sgst_value",
+   "fieldname": "sgst_value",
+   "fieldtype": "Data",
+   "label": "SGST Value"
+  },
+  {
+   "fetch_from": "sales_order_no.cgst_value",
+   "fieldname": "cgst_value",
+   "fieldtype": "Data",
+   "label": "CGST Value"
+  },
+  {
+   "fetch_from": "sales_order_no.igst_value",
+   "fieldname": "igst_value",
+   "fieldtype": "Data",
+   "label": "IGST Value"
+  },
+  {
+   "fieldname": "section_break_awkp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "invoice_item",
+   "fieldtype": "Table",
+   "label": "Invoice Item",
+   "options": "Invoice Item"
+  },
+  {
+   "fieldname": "invoice_delivery_table",
+   "fieldtype": "Table",
+   "label": "Invoice Delivery Table",
+   "options": "Invoice Delivery Table"
+  },
+  {
+   "fetch_from": "sales_order_no.remarks",
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "default": "Today",
+   "fetch_from": "sales_order_no.purchase_order_date",
+   "fieldname": "invoice_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sales_order_no.purchase_order_date",
+   "fieldname": "so_date",
+   "fieldtype": "Data",
+   "label": "SO Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmit"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Invoice",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-02 00:02:58.612131",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Invoice",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dispatch Team",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

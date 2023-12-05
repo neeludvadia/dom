@@ -1,0 +1,255 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:QT/{####}",
+ "creation": "2023-11-04 16:12:14.709495",
+ "default_email_template": "Quotation Approve",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_category",
+  "purchase_order_no",
+  "bill_to_party",
+  "bill_to_address",
+  "delivery_date",
+  "delivery_terms",
+  "sgst_value",
+  "igst_value",
+  "sales_person",
+  "column_break_mbxi",
+  "quotation_date",
+  "distribution_channel",
+  "purchase_order_date",
+  "ship_to_party",
+  "ship_to_address",
+  "payment_terms",
+  "pricing_date",
+  "cgst_value",
+  "total_amount",
+  "section_break_ongf",
+  "table_detail",
+  "remarks",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_category",
+   "fieldtype": "Select",
+   "label": "Order Category",
+   "options": "Commerical\nFOC\nConsigment\nReturn",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_order_no",
+   "fieldtype": "Data",
+   "label": "Purchase Order No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bill_to_party",
+   "fieldtype": "Link",
+   "label": "Bill To Party",
+   "options": "Customer Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bill_to_address",
+   "fieldtype": "Text",
+   "label": "Bill To Address"
+  },
+  {
+   "fetch_from": ".",
+   "fieldname": "ship_to_party",
+   "fieldtype": "Link",
+   "label": "Ship To Party",
+   "options": "Customer Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ship_to_address",
+   "fieldtype": "Text",
+   "label": "Ship To Address"
+  },
+  {
+   "fieldname": "column_break_mbxi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "distribution_channel",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Distribution Channel",
+   "options": "Distribution Channel",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_order_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Purchase Order Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
+  },
+  {
+   "fetch_from": "bill_to_party.payment_terms",
+   "fieldname": "payment_terms",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment Terms",
+   "options": "Payment Terms"
+  },
+  {
+   "default": "All Expense bear by us",
+   "fieldname": "delivery_terms",
+   "fieldtype": "Select",
+   "label": "Delivery Terms",
+   "options": "All Expense bear by us"
+  },
+  {
+   "fieldname": "pricing_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Pricing Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ongf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "table_detail",
+   "fieldtype": "Table",
+   "label": "Item Detail",
+   "options": "Item Detail"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nReporting Head Pending\nReporting Head Approved\nOrder Punching Team Pending\nOrder Punching Team Approve\nPending\nApproved\nReject\nCC Team Pending"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "sgst_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "SGST Value",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "cgst_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "CGST Value",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "igst_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "IGST Value",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Quotation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "quotation_date",
+   "fieldtype": "Date",
+   "label": "Quotation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_person",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sales Person"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-02 18:13:07.929507",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Quotation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

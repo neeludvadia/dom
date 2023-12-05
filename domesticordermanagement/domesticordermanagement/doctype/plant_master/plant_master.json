@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:plant-{###}",
+ "creation": "2023-11-03 23:27:30.679752",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_master",
+  "plant_name",
+  "gstin_no",
+  "dl_no",
+  "state_name",
+  "state_code",
+  "contact_person_name",
+  "contact_person_number",
+  "contact_email",
+  "column_break_vsrj",
+  "address",
+  "city_name",
+  "pincode"
+ ],
+ "fields": [
+  {
+   "fieldname": "plant_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plant Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "company_master.state",
+   "fieldname": "state_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vsrj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Text",
+   "label": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Int",
+   "label": "Pincode",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "company_master.state_code",
+   "fieldname": "state_code",
+   "fieldtype": "Data",
+   "label": "State Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_person_name",
+   "fieldtype": "Data",
+   "label": "Contact Person Name"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Link",
+   "label": "City Name",
+   "options": "City",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "company_master.gstin",
+   "fieldname": "gstin_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSTIN No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company_master",
+   "fieldtype": "Link",
+   "label": "Company Master",
+   "options": "Company Master"
+  },
+  {
+   "fetch_from": "company_master.drug_license_number",
+   "fieldname": "dl_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "DL No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_person_number",
+   "fieldtype": "Phone",
+   "label": "Contact Person Number"
+  },
+  {
+   "fetch_from": "company_master.email",
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-23 12:07:44.764512",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Plant Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "plant_name"
+}

@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-01 18:30:25.500110",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "material_code",
+  "material_description",
+  "plant",
+  "quantity",
+  "uom",
+  "rate",
+  "amount",
+  "discount",
+  "taxable_amount",
+  "gst_value",
+  "tcs_value",
+  "net_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  },
+  {
+   "fieldname": "material_description",
+   "fieldtype": "Data",
+   "label": "Material Description"
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Data",
+   "label": "Plant"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "UOM"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Data",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Data",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Data",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "taxable_amount",
+   "fieldtype": "Data",
+   "label": "Taxable Amount"
+  },
+  {
+   "fieldname": "gst_value",
+   "fieldtype": "Data",
+   "label": "GST Value"
+  },
+  {
+   "fieldname": "tcs_value",
+   "fieldtype": "Data",
+   "label": "TCS Value"
+  },
+  {
+   "fieldname": "net_value",
+   "fieldtype": "Data",
+   "label": "Net Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-12-01 18:32:38.722371",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Invoice Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

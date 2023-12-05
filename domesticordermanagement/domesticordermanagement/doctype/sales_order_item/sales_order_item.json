@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-07 14:53:09.653292",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_details_column",
+  "item_no",
+  "material_code",
+  "materia_description",
+  "plant",
+  "quantity",
+  "unit",
+  "rate",
+  "amount",
+  "discount",
+  "taxable_amount",
+  "gst",
+  "gst_value",
+  "tcs_value",
+  "net_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_details_column",
+   "fieldtype": "Column Break",
+   "label": "Item Details"
+  },
+  {
+   "fieldname": "item_no",
+   "fieldtype": "Data",
+   "label": "Item No",
+   "options": "Item Detail"
+  },
+  {
+   "fetch_from": "item_no.",
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  },
+  {
+   "fieldname": "materia_description",
+   "fieldtype": "Data",
+   "label": "Materia Description"
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Data",
+   "label": "Plant"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Currency",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "taxable_amount",
+   "fieldtype": "Currency",
+   "label": "Taxable Amount"
+  },
+  {
+   "fieldname": "gst",
+   "fieldtype": "Currency",
+   "label": "GST%"
+  },
+  {
+   "fieldname": "gst_value",
+   "fieldtype": "Currency",
+   "label": "GST Value"
+  },
+  {
+   "fieldname": "tcs_value",
+   "fieldtype": "Currency",
+   "label": "TCS Value"
+  },
+  {
+   "fieldname": "net_value",
+   "fieldtype": "Currency",
+   "label": "Net Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-09 16:18:49.825825",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Sales Order Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

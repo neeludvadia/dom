@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-06 15:08:26.921577",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "distribution_channel",
+  "customer",
+  "material_code",
+  "material_description",
+  "column_break_wrao",
+  "price",
+  "uom",
+  "valid_from",
+  "valid_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "distribution_channel",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Distribution Channel",
+   "options": "Distribution Channel",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Material Code",
+   "options": "Material Master",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "material_code.material_description",
+   "fieldname": "material_description",
+   "fieldtype": "Read Only",
+   "label": "Material Description"
+  },
+  {
+   "fieldname": "column_break_wrao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "material_code.sale_unit_of_measure",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid To",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-23 12:13:28.493778",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Price Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
