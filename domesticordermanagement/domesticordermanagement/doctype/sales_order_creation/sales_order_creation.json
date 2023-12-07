@@ -224,7 +224,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-02 18:15:11.652157",
+ "modified": "2023-12-06 15:23:08.574377",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Creation",
@@ -293,6 +293,15 @@
   {
    "email": 1,
    "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dispatch Team",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
    "permlevel": 1,
    "print": 1,
    "read": 1,
@@ -305,6 +314,37 @@
    "email": 1,
    "export": 1,
    "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PPIC Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dispatch Team",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dispatch Team",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
    "print": 1,
    "read": 1,
    "report": 1,

@@ -12,7 +12,7 @@
  "is_standard": 1,
  "message": "<p>Invoice Creation Request :</p>\n\n<h3>Invoice Creation Request</h3>\n\n<p>Request for new Sales Order Create for Sales Order {{doc.so_date}} with Number {{doc.name}}.\n</p><br/>\n\n<ul>\n<li>Sales Order No : {{doc.name}}</li>\n<li>Sales Order Date : {{doc.so_date}}</li>\n<li>Customer Name : {{ doc.bill_to_party }}</li>\n<li>Bill to Party : {{ doc.bill_to_party }}</li>\n<li>Ship to Party : {{ doc.ship_to_party }}</li>\n<li>Purchase No. : {{ doc.purchase_order_no }}</li>\n<li>Payment Terms : {{doc.payment_terms}}</li>\n<li>Status : {{doc.status}}</li>\n<li>Delivery Date : {{ doc.delivery_date }}</li>\n</ul>\n\n<p>Please Create the Invoice<br/></p>\n",
  "message_type": "Markdown",
- "modified": "2023-12-02 16:50:18.916164",
+ "modified": "2023-12-06 17:45:12.798149",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Request For Invoice Creation",
@@ -20,7 +20,7 @@
  "recipients": [
   {
    "condition": "doc.status=='Approved'",
-   "receiver_by_document_field": "owner",
+   "receiver_by_document_field": "",
    "receiver_by_role": "Dispatch Team"
   }
  ],

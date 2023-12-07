@@ -11,8 +11,8 @@
  "idx": 0,
  "is_standard": 1,
  "message": "<p>Sales Quotation Approval Request:</p>\n\n<h3>Sales Quotation Approval Request</h3>\n\n<p>Request for new Sales Quotation Approval on {{doc.quotation_date}} with Number {{doc.name}}.\n</p><br/>\n\n<ul>\n<li>Quotation No : {{doc.name}}</li>\n<li>Customer Code : {{ doc.bill_to_party }}</li>\n<li>Bill to Party : {{ doc.bill_to_party }}</li>\n<li>Ship to Party : {{ doc.ship_to_party }}</li>\n<li>Purchase No. : {{ doc.purchase_order_no }}</li>\n<li>Payment Terms : {{doc.payment_terms}}</li>\n<li>Status : {{doc.status}}</li>\n<li>Delivery Date : {{ doc.delivery_date }}</li>\n</ul>\n\n<p>Please approve<br/></p>\n",
- "message_type": "Markdown",
- "modified": "2023-12-02 14:46:53.623573",
+ "message_type": "HTML",
+ "modified": "2023-12-07 12:45:07.353154",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Quotation Approval",
@@ -21,7 +21,7 @@
   {
    "cc": "neel.udvadia@merillife.com",
    "condition": "doc.status=='Reporting Head Pending'",
-   "receiver_by_document_field": "owner",
+   "receiver_by_document_field": "",
    "receiver_by_role": "Sales Manager"
   }
  ],
