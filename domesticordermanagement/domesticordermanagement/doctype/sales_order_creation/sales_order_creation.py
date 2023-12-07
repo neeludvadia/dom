@@ -5,6 +5,9 @@ from frappe.model.document import Document
 
 
 class SalesOrderCreation(Document):
+	def before_submit(self):
+		if self.payment_confirm_ != 1:
+			frappe.throw("Please Check Mark Payment Confirmation")
 	pass
 
 

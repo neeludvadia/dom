@@ -9,10 +9,7 @@ let tcs;
 frappe.ui.form.on("Sales Order Creation", {
 
     onload(data){
-       
-          
-            
-        frappe.call({
+       frappe.call({
             method: 'frappe.client.get_value',
             
             args: {
@@ -24,6 +21,10 @@ frappe.ui.form.on("Sales Order Creation", {
                 ]
             },
             callback: function(r) {
+<<<<<<< HEAD
+=======
+                // console.log(r.message.pan)
+>>>>>>> 63de3fb2bd52b16b060f46b76757ed8ab4703808
                 let pan = r.message.pan;
                 console.log(pan)
                 data.doc.item_details.forEach(function(row) {
@@ -49,7 +50,14 @@ frappe.ui.form.on("Sales Order Creation", {
     },
         
     refresh(frm){
+<<<<<<< HEAD
         if((frappe.user_roles[0]=="Dispatch Team" && frm.doc.status=="Approved") || frappe.user_roles[0]=="System Manager"){
+=======
+        console.log(cur_frm.doc.fg_stock_available_)
+        if((frappe.user_roles[0]==="Dispatch Team" && frm.doc.status==="Approved" && cur_frm.doc.fg_stock_available_ === 1 && cur_frm.doc.payment_confirm_ === 1) ||   frappe.user_roles[0]=="System Manager"){
+
+        
+>>>>>>> 63de3fb2bd52b16b060f46b76757ed8ab4703808
         frm.add_custom_button("Create Invoice",()=>{
             frappe.set_route("Form", "Invoice","new-Invoice");
             frappe.ui.form.on("Invoice",{
@@ -84,7 +92,7 @@ let getvalues = (data)=>{
         callback: function(r) {
 
             for  (value in r.message) {
-               
+            console.log(r.message)   
             var child = cur_frm.add_child('item_details');
             frappe.model.set_value(child.doctype, child.name, 'material_code', r.message[value].material_code);
             frappe.model.set_value(child.doctype, child.name, 'materia_description', r.message[value].material_description);
