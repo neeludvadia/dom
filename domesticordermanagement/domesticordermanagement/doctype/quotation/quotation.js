@@ -26,27 +26,13 @@ function calculateAmount(frm, cdt, cdn) {
     frappe.model.set_value(cdt, cdn, 'gst', gst);
     
     
-    // var net_amount=(taxable_amount + (taxable_amount * gst)/100);
+   
     let net_amount= taxable_amount + cgstvalue + sgstvalue + igstvalue;
     console.log("net_amount",net_amount)
     frappe.model.set_value(cdt, cdn, 'amount', amount);
     frappe.model.set_value(cdt, cdn, 'taxable_amount', taxable_amount);
     frappe.model.set_value(cdt, cdn, 'net_amount',net_amount);
-    //frm.refresh_field('net_amount');
-
-    // frm.doc.total_amount = net_amount;
-    // frm.doc.sgst_value = sgstvalue;
-    // frm.doc.igst_value = igstvalue;
-    // frm.doc.cgst_value = cgstvalue;
-
-
-
-    //console.log(frm);
-    // for(i=0;i<2;i++)
-    // {  
-    //     total = total+ amount
-    //     console.log(total);
-    // }
+   
 
         let ttl_itms_netamount = 0;
         let ttl_itms_sgst_value = 0;
@@ -67,37 +53,27 @@ function calculateAmount(frm, cdt, cdn) {
         frm.set_value('cgst_value',ttl_itms_cgst_value)
         frm.set_value('igst_value',ttl_itms_igst_value)
     
-//    frm.doc.item_detail.forEach(function(item) {
-//     frappe.msgprint("amount"+item.amount);
-//      total += item.amount; 
-    
-//     });
+
    frm.set_value('total_amount', ttl_itms_netamount);
 }
 
 
 frappe.ui.form.on("Item Detail", {
     qty: function(frm,cdt,cdn) {
-        // calculateAmount(frm, cdt, cdn);
-        //frm.refresh_field('amount');
+       
     },
     rate: function(frm,cdt,cdn) {
         calculateAmount(frm, cdt, cdn);
         frappe.model.set_value(cdt, cdn, 'gst',0);
-       // frm.refresh_field('amount');
+      
     },
     discount: function(frm,cdt,cdn) {
         calculateAmount(frm, cdt, cdn);
         
-       // frm.refresh_field('amount');
+      
     }
     ,
-    // gst: function(frm,cdt,cdn) {
-    //     calculateAmount(frm, cdt, cdn);
-
-    
-       // frm.refresh_field('amount');
-    // },
+   
     plant: function(frm,cdt,cdn){
         var item = locals[cdt][cdn];
         frappe.call({
@@ -165,15 +141,13 @@ frappe.ui.form.on("Item Detail", {
             callback: function(r) {
                 console.log(r.message.cgstp)
                 
-                // frappe.model.set_value(cdt, cdn, 'sgst_', r.message.sgstp);
-                // frappe.model.set_value(cdt, cdn, 'cgst_', r.message.cgstp);
-                // frappe.model.set_value(cdt, cdn, 'igst_', r.message.igstp);
+                
                 if (!r.exc) {
                     
                 }
             }
         })
-        //console.log(cur_frm.doc.distribution_channel,cur_frm.doc.bill_to_party,item.material_code,cur_frm.doc.pricing_date)
+       
         frappe.call({
             method:'domesticordermanagement.domesticordermanagement.doctype.quotation.quotation.get_details_for_rate',
             args:{
@@ -183,10 +157,6 @@ frappe.ui.form.on("Item Detail", {
                 'pricing_date':cur_frm.doc.pricing_date,
             },
             callback: function(r){
-                //frappe.msgprint(r.message)
-                //console.log(r.message[0][0])
-                //index.set_value('rate',r.message[0][0])
-                //check if value changed in material code date doesnt match then what will be answer
                 console.log(r.message);
                 frappe.model.set_value(cdt, cdn, 'rate', '');
                 frappe.model.set_value(cdt, cdn, 'rate', r.message[0][0]);
@@ -206,8 +176,6 @@ frappe.ui.form.on("Quotation",{
    
     bill_to_party(frm){
         frm.call('get_customer_billing_address_details').then((r)=>{
-            // let msg = JSON.stringify(r);
-            // let msg1 = JSON.parse(msg);
             let msg = r;
             let msg1 = r.message.toString();
             console.log(r.message)
@@ -232,29 +200,6 @@ frappe.ui.form.on("Quotation",{
             frappe.ui.form.on("Sales Order Creation",{
                 onload:function(data){
                     data.set_value("quotation_no", frm.doc.name); 
-                    // console.log(frm.doc.table_detail)
-                    // frm.doc.table_detail.forEach(function(row) {
-                    //     var child = cur_frm.add_child('item_details');
-                    //     frappe.model.set_value(child.doctype, child.name, 'material_code', row.material_code);
-                    //     frappe.model.set_value(child.doctype, child.name, 'materia_description', row.material_description);
-                    //     frappe.model.set_value(child.doctype, child.name, 'plant', row.plant);
-                    //     frappe.model.set_value(child.doctype, child.name, 'quantity', row.qty);
-                    //     frappe.model.set_value(child.doctype, child.name, 'rate', row.rate);
-                    //     frappe.model.set_value(child.doctype, child.name, 'amount', row.amount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'discount', row.discount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'taxable_amount', row.taxable_amount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'gst_value', row.gst);
-                    //     frappe.model.set_value(child.doctype, child.name, 'uom',row.uom)
-                        
-                    //     var child2 = cur_frm.add_child('delivery_schedule');
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'material', row.material_code)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'material_description', row.material_description)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'quantity', row.qty)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'scheduledelivery_date', frm.doc.delivery_date)
-                        
-                       
-                    // });
-
                 }
             })
         })

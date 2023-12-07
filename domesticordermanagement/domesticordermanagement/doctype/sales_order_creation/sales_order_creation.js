@@ -24,8 +24,7 @@ frappe.ui.form.on("Sales Order Creation", {
                 ]
             },
             callback: function(r) {
-                // console.log(r.message.pan)
-              let pan = r.message.pan;
+                let pan = r.message.pan;
                 console.log(pan)
                 data.doc.item_details.forEach(function(row) {
                 
@@ -37,11 +36,9 @@ frappe.ui.form.on("Sales Order Creation", {
                       
                         tcs = 1/1000
                     }
-                    // console.log(tcs)
                     value =  value * tcs 
                     row.tcs_value = value;
                     row.net_value = row.gst_value + row.taxable_amount + row.tcs_value;
-                    // console.log(value)
                 })
                 if (!r.exc) {
                     
@@ -53,38 +50,11 @@ frappe.ui.form.on("Sales Order Creation", {
         
     refresh(frm){
         if((frappe.user_roles[0]=="Dispatch Team" && frm.doc.status=="Approved") || frappe.user_roles[0]=="System Manager"){
-
-        
         frm.add_custom_button("Create Invoice",()=>{
             frappe.set_route("Form", "Invoice","new-Invoice");
             frappe.ui.form.on("Invoice",{
                 onload:function(data){
                     data.set_value("sales_order_no", frm.doc.name); 
-                    // console.log(frm.doc.table_detail)
-                    // frm.doc.item_details.forEach(function(row) {
-                    //     var child = cur_frm.add_child('invoice_detail');
-                    //     frappe.model.set_value(child.doctype, child.name, 'material_code', row.material_code);
-                    //     frappe.model.set_value(child.doctype, child.name, 'materia_description', row.materia_description);
-                    //     frappe.model.set_value(child.doctype, child.name, 'plant', row.plant);
-                    //     frappe.model.set_value(child.doctype, child.name, 'quantity', row.quantity);
-                    //     frappe.model.set_value(child.doctype, child.name, 'rate', row.rate);
-                    //     frappe.model.set_value(child.doctype, child.name, 'amount', row.amount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'discount', row.discount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'taxable_amount', row.taxable_amount);
-                    //     frappe.model.set_value(child.doctype, child.name, 'gst_value', row.gst_value);
-                    //     frappe.model.set_value(child.doctype, child.name, 'uom',row.uom);
-                    //     frappe.model.set_value(child.doctype, child.name, 'tcs_value',row.tcs_value);
-                    //     frappe.model.set_value(child.doctype, child.name, 'net_value',row.net_value)
-                        
-                    //     var child2 = cur_frm.add_child('invoice_delivery_table');
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'material', row.material_code)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'material_description', row.materia_description)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'quantity', row.quantity)
-                    //     frappe.model.set_value(child2.doctype, child2.name, 'scheduledelivery_date', frm.doc.delivery_date)
-                        
-                       
-                    // });
-
                 }
             })
         })
@@ -105,40 +75,14 @@ frappe.ui.form.on("Sales Order Creation", {
 
 
 let getvalues = (data)=>{
-   // console.log(data.doc.quotation_no)
-    frappe.call({
+     frappe.call({
         method: 'domesticordermanagement.domesticordermanagement.doctype.sales_order_creation.sales_order_creation.get_child_table',
         
         args: {
             'quotationno':data.doc.quotation_no
-        //     'doctype': 'Item Detail',
-        //     'filters': {"parent": data.doc.quotation_no},
-        //     'parent':'Quotation',
-        //     'fieldname': [
-        //         "material_code",
-        //         "material_description",
-        //         "plant",
-        //         "qty",
-        //         "uom",
-        //         "currency",
-        //         "rate",
-        //         "amount",
-        //         "discount",
-        //         "taxable_amount",
-        //         "sgst_",
-        //         "sgst_value",
-        //         "cgst_",
-        //         "cgst_value",
-        //         "igst_",
-        //         "igst_value",
-        //         "net_amount",
-        //         "gst"
-
-        //     ]
         },
         callback: function(r) {
 
-          //  console.log(r);
             for  (value in r.message) {
                
             var child = cur_frm.add_child('item_details');
@@ -166,34 +110,7 @@ let getvalues = (data)=>{
             frappe.model.set_value(child2.doctype, child2.name, 'scheduledelivery_date', cur_frm.doc.delivery_date)
 
             }
-        // method: 'domesticordermanagement.domesticordermanagement.doctype.sales_order_creation.sales_order_creation.some_details',
-        // args: {
-        //     quotationno: data.doc.quotation_no,
-        // },
-        // callback: function(r) {
-            //console.log(r.message);
-            
-            // console.log(child)
-            // for(let i in r.message){
-            //     var child = cur_frm.add_child('item_details');
-            //     var child2 = cur_frm.add_child('delivery_schedule');
-            //     console.log(r.message[i].material_code)
-            //     frappe.model.set_value(child.doctype, child.name, 'material_code', r.message[i].material_code);
-            //     frappe.model.set_value(child.doctype, child.name, 'materia_description', r.message[i].material_description);
-            //     frappe.model.set_value(child.doctype, child.name, 'plant', r.message[i].plant);
-            //     frappe.model.set_value(child.doctype, child.name, 'quantity', r.message[i].qty);
-            //     frappe.model.set_value(child.doctype, child.name, 'rate', r.message[i].rate);
-            //     frappe.model.set_value(child.doctype, child.name, 'amount', r.message[i].amount);
-            //     frappe.model.set_value(child.doctype, child.name, 'discount', r.message[i].discount);
-            //     frappe.model.set_value(child.doctype, child.name, 'taxable_amount', r.message[i].taxable_amount);
-            //     frappe.model.set_value(child.doctype, child.name, 'gst_value', r.message[i].gst);
-            //     frappe.model.set_value(child.doctype, child.name, 'uom',r.message[i].uom)
-            //     frappe.model.set_value(child2.doctype, child2.name, 'material', r.message[i].material_code)
-            //     frappe.model.set_value(child2.doctype, child2.name, 'material_description', r.message[i].material_description)
-            //     frappe.model.set_value(child2.doctype, child2.name, 'quantity', r.message[i].qty)
-            //     frappe.model.set_value(child2.doctype, child2.name, 'scheduledelivery_date', cur_frm.doc.delivery_date)
-            // }
-
+       
             data.doc.item_details.forEach(function(row) {
             
                 value = row.gst_value + row.taxable_amount
@@ -204,7 +121,6 @@ let getvalues = (data)=>{
                   
                     tcs = 1/1000
                 }
-                // console.log(tcs)
                 value =  value * tcs 
                 row.tcs_value = value;
                 row.net_value = row.gst_value + row.taxable_amount + row.tcs_value;
@@ -220,11 +136,3 @@ let getvalues = (data)=>{
 
 
 
-// frappe.ui.form.on("Sales Order Item", {
-//     refresh:(frm,cdt,cdn)=>{
-//         var item = locals[cdt][cdn];
-//         let total = item.gst_value+item.taxable_amount + item.tcs_value
-//         console.log(total);
-//         frappe.model.set_value(cdt, cdn, 'net_value', total);
-//     }
-// });

@@ -11,28 +11,7 @@ from email.mime.multipart import MIMEMultipart
 class Quotation(Document):
 	def before_save(self):
 		x=0
-		##SendEmail(self)
-	# @frappe.whitelist()
-	# def get_hsn_values(hsn_code):
-	# 		address = frappe.get_list('HSN Master',filters={'hsn_code': hsn_code},fields=['cgstp','sgstp','igstp'])
 	
-	
-	# def before_validate(self):
-	# 	self.bill_to_address = ""
-	# 	data = frappe.db.sql(f"""
-	# 							SELECT 
-	# 								city, state, country, pin_code, state_code
-	# 								FROM 
-	# 									`tabCustomer Address Details`
-	# 								WHERE
-	# 									is_default_address = '1' AND
-	# 									parent = '{self.bill_to_party}' AND
-	# 									customer_type = 'Billing Address'
-	# 						""")
-
-	# 	for d in data:
-	# 		self.bill_to_address = self.bill_to_address + str(d)
-
 	@frappe.whitelist()
 	def get_customer_billing_address_details(self):
 		self.bill_to_address = ""

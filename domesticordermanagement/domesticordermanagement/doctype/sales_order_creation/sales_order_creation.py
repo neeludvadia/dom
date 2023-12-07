@@ -14,7 +14,3 @@ def get_child_table(quotationno):
 	values = frappe.db.get_all('Item Detail',filters={'parent':quotationno},fields=['*'])
 	return values
 pass
-# @frappe.whitelist()
-# def some_details(quotationno):
-# 	data = frappe.db.get_all('Item Detail', filters={'parent':quotationno},fields=["*"])
-# 	return data
