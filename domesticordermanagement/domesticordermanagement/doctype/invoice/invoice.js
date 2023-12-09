@@ -26,31 +26,7 @@ frappe.ui.form.on("Invoice", {
                     frappe.model.set_value(child.doctype, child.name, 'net_value', r.message[value].net_value);
                     frappe.model.set_value(child.doctype, child.name, 'uom',r.message[value].unit)
                 
-                    var child2 = cur_frm.add_child('invoice_delivery_table');
-                    console.log(cur_frm.doc.delivery_date)
-                    frappe.model.set_value(child2.doctype, child2.name, 'material', r.message[value].material_code)
-                    frappe.model.set_value(child2.doctype, child2.name, 'material_description', r.message[value].materia_description)
-                    frappe.model.set_value(child2.doctype, child2.name, 'quantity', r.message[value].quantity)
-                    frappe.model.set_value(child2.doctype, child2.name, 'scheduledelivery_date', cur_frm.doc.delivery_date)
-
-            }
-    
-                // data.doc.item_details.forEach(function(row) {
-                
-                //     value = row.gst_value + row.taxable_amount
-                //     if(pan == ""){
-                      
-                //         tcs = 1/100
-                //     }else{
-                      
-                //         tcs = 1/1000
-                //     }
-                //     // console.log(tcs)
-                //     value =  value * tcs 
-                //     row.tcs_value = value;
-                //     row.net_value = row.gst_value + row.taxable_amount + row.tcs_value;
-                // })
-                
+                }                      
                 if (!r.exc) {
                     
                 }

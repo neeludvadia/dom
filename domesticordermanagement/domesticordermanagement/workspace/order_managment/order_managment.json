@@ -1,0 +1,118 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"etKnP7da5w\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"XiL_4pwGpx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"9vmjxfZUNW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State\",\"col\":3}},{\"id\":\"271mgxiHvX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":3}},{\"id\":\"V4skCUkAgV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"id\":\"mhLOenU_p4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Category\",\"col\":3}},{\"id\":\"AqSNUX_GtV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Group\",\"col\":3}},{\"id\":\"4006v9us2n\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material\",\"col\":3}},{\"id\":\"ZoovLTy7qJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Distribution Channel\",\"col\":3}},{\"id\":\"BTP2KgdtwH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Plant\",\"col\":3}},{\"id\":\"8YalnjYqEV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"kc8pMsf54z\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"4Oq17_2Q3H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}}]",
+ "creation": "2023-11-04 23:18:28.017346",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "external-link",
+ "idx": 0,
+ "indicator_color": "grey",
+ "is_hidden": 0,
+ "label": "Order Managment",
+ "links": [],
+ "modified": "2023-12-09 10:03:01.205759",
+ "modified_by": "Administrator",
+ "module": "DomesticOrderManagement",
+ "name": "Order Managment",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 0,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 7.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material",
+   "link_to": "Material Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Customer",
+   "link_to": "Customer Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Country",
+   "link_to": "Country Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Quotation",
+   "link_to": "Quotation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "State",
+   "link_to": "State",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "District",
+   "link_to": "District Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "City",
+   "link_to": "City",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Category",
+   "link_to": "Material Category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Group",
+   "link_to": "Material Group",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Distribution Channel",
+   "link_to": "Distribution Channel",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Plant",
+   "link_to": "Plant Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Order Managment"
+}

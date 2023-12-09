@@ -28,7 +28,6 @@
   "igst_value",
   "section_break_awkp",
   "invoice_item",
-  "invoice_delivery_table",
   "remarks",
   "amended_from"
  ],
@@ -144,12 +143,6 @@
    "options": "Invoice Item"
   },
   {
-   "fieldname": "invoice_delivery_table",
-   "fieldtype": "Table",
-   "label": "Invoice Delivery Table",
-   "options": "Invoice Delivery Table"
-  },
-  {
    "fetch_from": "sales_order_no.remarks",
    "fieldname": "remarks",
    "fieldtype": "Small Text",
@@ -190,7 +183,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-02 00:02:58.612131",
+ "modified": "2023-12-08 14:37:59.148966",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Invoice",
