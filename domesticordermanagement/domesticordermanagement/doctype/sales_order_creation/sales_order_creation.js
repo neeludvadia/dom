@@ -47,7 +47,7 @@ frappe.ui.form.on("Sales Order Creation", {
     },
         
     refresh(frm){
-        if((frappe.user_roles[0]=="Dispatch Team" && frm.doc.status=="Approved") || frappe.user_roles[0]=="System Manager"){
+        if((frappe.user_roles[0]=="Dispatch Team" && frm.doc.status=="Approved")){
         frm.add_custom_button("Create Invoice",()=>{
             frappe.set_route("Form", "Invoice","new-Invoice");
             frappe.ui.form.on("Invoice",{
@@ -100,7 +100,7 @@ let getvalues = (data)=>{
             frappe.model.set_value(child.doctype, child.name, 'sgst',r.message[value].sgst_)
             frappe.model.set_value(child.doctype, child.name, 'cgst',r.message[value].cgst_)
             frappe.model.set_value(child.doctype, child.name, 'igst',r.message[value].igst_)
-            
+            cur_frm.refresh_field('item_details') 
             }
        
             data.doc.item_details.forEach(function(row) {

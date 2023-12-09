@@ -173,7 +173,33 @@ frappe.ui.form.on("Quotation",{
     onload(frm){
         frm.doc.sales_person = frappe.session.user_fullname;
     },
+
+    delivery_date(frm){
+        if( frm.doc.delivery_date <= frm.doc.quotation_date ){
+            frappe.msgprint(__(" Date validation error"));
+            frappe.validated = false;
+            //   frm.set_value('delivery_date','');
+        }
+        },
+
+        pricing_date(frm){
+            if( frm.doc.pricing_date <= frm.doc.quotation_date || frm.doc.pricing_date >= frm.doc.delivery_date ){
+                frappe.msgprint(__(" Date validation error"));
+                frappe.validated = false;
+                //   frm.set_value('delivery_date','');
+            }
+            },
+
+            purchase_order_date(frm){
+                if( frm.doc.purchase_order_date >= frm.doc.quotation_date){
+                    frappe.msgprint(__(" Date validation error"));
+                    frappe.validated = false;
+                    //   frm.set_value('delivery_date','');
+                }
+                },
+            
    
+
     bill_to_party(frm){
         frm.call('get_customer_billing_address_details').then((r)=>{
             let msg = r;
@@ -202,7 +228,7 @@ frappe.ui.form.on("Quotation",{
     },
     refresh(frm){
         console.log(frm.doc.status);
-        if ((frappe.user_roles[0]=="Order Punching Team" && frm.doc.status== "Approved") || frappe.user_roles[0]=="System Manager")
+        if ((frappe.user_roles[0]=="Order Punching Team" && frm.doc.status== "Approved"))
         {
         
         frm.add_custom_button("Create Sales Order",()=>{
@@ -213,7 +239,9 @@ frappe.ui.form.on("Quotation",{
                 }
             })
         })
+     
     }
+    frm.remove_custom_button();
      }
 })
 

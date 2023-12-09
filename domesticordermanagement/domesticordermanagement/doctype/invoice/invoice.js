@@ -25,8 +25,9 @@ frappe.ui.form.on("Invoice", {
                     frappe.model.set_value(child.doctype, child.name, 'tcs_value', r.message[value].tcs_value);
                     frappe.model.set_value(child.doctype, child.name, 'net_value', r.message[value].net_value);
                     frappe.model.set_value(child.doctype, child.name, 'uom',r.message[value].unit)
-                
-                }                      
+                    cur_frm.refresh_field('invoice_item')     
+                }   
+                             
                 if (!r.exc) {
                     
                 }
