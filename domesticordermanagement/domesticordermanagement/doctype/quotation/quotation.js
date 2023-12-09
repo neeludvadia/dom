@@ -177,17 +177,27 @@ frappe.ui.form.on("Quotation",{
     bill_to_party(frm){
         frm.call('get_customer_billing_address_details').then((r)=>{
             let msg = r;
-            let msg1 = r.message.toString();
-            console.log(r.message)
-            frm.set_value("bill_to_address", msg1);
+            let msg1 = [];
+
+            for(let i=0;i<r.message.length;i++){
+                msg1.push(`${r.message[i]}`)
+                console.log(msg1);
+            }
+            frm.set_df_property('bill_to_address', 'options',msg1);
+            frm.refresh_field('bill_to_address');
         })
     },
     ship_to_party(frm){
         frm.call('get_customer_shipping_address_details').then((r)=>{
             let msg = r;
-            let msg1 = r.message.toString();
-            console.log(r.message)
-            frm.set_value("ship_to_address", msg1);
+            let msg1 = [];
+
+            for(let i=0;i<r.message.length;i++){
+                msg1.push(`${r.message[i]}`)
+                console.log(msg1);
+            }
+            frm.set_df_property('ship_to_address', 'options',msg1);
+            frm.refresh_field('ship_to_address');
         })
     },
     refresh(frm){

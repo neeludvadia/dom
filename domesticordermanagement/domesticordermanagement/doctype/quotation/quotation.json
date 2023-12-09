@@ -57,11 +57,11 @@
   },
   {
    "fieldname": "bill_to_address",
-   "fieldtype": "Text",
+   "fieldtype": "Select",
    "label": "Bill To Address"
   },
   {
-   "fetch_from": ".",
+   "fetch_from": "bill_to_party.customer_code",
    "fieldname": "ship_to_party",
    "fieldtype": "Link",
    "label": "Ship To Party",
@@ -70,7 +70,7 @@
   },
   {
    "fieldname": "ship_to_address",
-   "fieldtype": "Text",
+   "fieldtype": "Select",
    "label": "Ship To Address"
   },
   {
@@ -196,7 +196,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-02 18:13:07.929507",
+ "modified": "2023-12-09 16:33:31.834601",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Quotation",

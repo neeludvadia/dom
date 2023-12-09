@@ -11,13 +11,10 @@
   "customer_basic_details_section",
   "customer_code",
   "contact_person_1",
-  "customer_owner_sales_person",
   "pan",
   "telephone",
   "fax",
   "drug_license_no_1",
-  "bank_name",
-  "ifsc_code",
   "column_break_iqvh",
   "customer_name",
   "customer_type",
@@ -25,7 +22,6 @@
   "gstin_no",
   "mobile",
   "drug_license_no_2",
-  "ibanaccount_number",
   "is_active",
   "section_break_qdvl",
   "customer_address_details"
@@ -76,25 +72,8 @@
    "label": "Drug License No 2"
   },
   {
-   "fieldname": "bank_name",
-   "fieldtype": "Link",
-   "label": "Bank Name",
-   "options": "Bank Master"
-  },
-  {
-   "fieldname": "ifsc_code",
-   "fieldtype": "Data",
-   "label": "IFSC Code"
-  },
-  {
    "fieldname": "column_break_iqvh",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "customer_owner_sales_person",
-   "fieldtype": "Link",
-   "label": "Customer Owner (Sales Person)",
-   "options": "Employee Master"
   },
   {
    "fieldname": "payment_terms",
@@ -118,11 +97,6 @@
    "fieldname": "drug_license_no_1",
    "fieldtype": "Data",
    "label": "Drug License No 1"
-  },
-  {
-   "fieldname": "ibanaccount_number",
-   "fieldtype": "Data",
-   "label": "IBAN/Account Number"
   },
   {
    "default": "0",
@@ -151,7 +125,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-06 16:36:08.406926",
+ "modified": "2023-12-09 16:22:00.753751",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Customer Master",

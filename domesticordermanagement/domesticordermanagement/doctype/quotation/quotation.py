@@ -21,7 +21,6 @@ class Quotation(Document):
 									FROM 
 										`tabCustomer Address Details`
 									WHERE
-										is_default_address = '1' AND
 										parent = '{self.bill_to_party}' AND
 										customer_type = 'Billing Address'
 							""")
@@ -37,7 +36,7 @@ class Quotation(Document):
 									FROM 
 										`tabCustomer Address Details`
 									WHERE
-										is_default_address = '1' AND
+										
 										parent = '{self.ship_to_party}' AND
 										customer_type = 'Shipping Address'
 							""")
