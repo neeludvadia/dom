@@ -324,7 +324,7 @@ let getvalues = (data)=>{
                 }
                 value =  value * tcs 
                 row.tcs_value = value;
-                row.net_value = row.gst_value + row.taxable_amount + row.tcs_value;
+                row.net_value = row.gst_value + row.taxable_amount;
             })
             
             if (!r.exc) {

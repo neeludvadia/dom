@@ -8,6 +8,7 @@
  "field_order": [
   "item_details_column",
   "material_code",
+  "currency",
   "materia_description",
   "plant",
   "quantity",
@@ -65,12 +66,14 @@
   {
    "fieldname": "rate",
    "fieldtype": "Currency",
-   "label": "Rate"
+   "label": "Rate",
+   "options": "currency"
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "label": "Amount",
+   "options": "currency"
   },
   {
    "fieldname": "discount",
@@ -80,22 +83,26 @@
   {
    "fieldname": "taxable_amount",
    "fieldtype": "Currency",
-   "label": "Taxable Amount"
+   "label": "Taxable Amount",
+   "options": "currency"
   },
   {
    "fieldname": "gst_value",
    "fieldtype": "Currency",
-   "label": "GST Value"
+   "label": "GST Value",
+   "options": "currency"
   },
   {
    "fieldname": "tcs_value",
    "fieldtype": "Currency",
-   "label": "TCS Value"
+   "label": "TCS Value",
+   "options": "currency"
   },
   {
    "fieldname": "net_value",
    "fieldtype": "Currency",
-   "label": "Net Value"
+   "label": "Net Value",
+   "options": "currency"
   },
   {
    "fieldname": "sgst",
@@ -105,7 +112,8 @@
   {
    "fieldname": "sgst_value",
    "fieldtype": "Currency",
-   "label": "SGST Value"
+   "label": "SGST Value",
+   "options": "currency"
   },
   {
    "fieldname": "cgst",
@@ -115,7 +123,8 @@
   {
    "fieldname": "cgst_value",
    "fieldtype": "Currency",
-   "label": "CGST Value"
+   "label": "CGST Value",
+   "options": "currency"
   },
   {
    "fieldname": "igst",
@@ -125,13 +134,21 @@
   {
    "fieldname": "igst_value",
    "fieldtype": "Currency",
-   "label": "IGST Value"
+   "label": "IGST Value",
+   "options": "currency"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Currency",
+   "options": "INR\nUS"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-12-14 12:32:43.797821",
+ "modified": "2023-12-14 13:49:53.785239",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Item",

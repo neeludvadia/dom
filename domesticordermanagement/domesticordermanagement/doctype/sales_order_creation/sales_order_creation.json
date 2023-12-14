@@ -201,7 +201,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nCC Team Approved\nCC Team Pending\nPPIC Team Approved\nPPIC Team Pending\nApproved\nReject",
+   "options": "Draft\nPending Approval : CC Team\nPending Approval : PPIC Team\nCC Team Approved\nCC Team Pending\nPPIC Team Approved\nPPIC Team Pending\nApproved\nReject",
    "read_only": 1
   },
   {
@@ -235,7 +235,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-14 11:29:21.914377",
+ "modified": "2023-12-14 13:32:33.582848",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Creation",
