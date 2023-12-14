@@ -1,5 +1,7 @@
 // Copyright (c) 2023, Meril and contributors
 // For license information, please see license.txt
+
+
 let party_statecode
 let plant_statecode
 function calculateAmount(frm, cdt, cdn) {
@@ -60,20 +62,18 @@ function calculateAmount(frm, cdt, cdn) {
 
 frappe.ui.form.on("Item Detail", {
     qty: function(frm,cdt,cdn) {
-       
+        calculateAmount(frm, cdt, cdn);
     },
+    
     rate: function(frm,cdt,cdn) {
         calculateAmount(frm, cdt, cdn);
         frappe.model.set_value(cdt, cdn, 'gst',0);
-      
     },
+
     discount: function(frm,cdt,cdn) {
         calculateAmount(frm, cdt, cdn);
-        
-      
-    }
-    ,
-   
+    },
+
     plant: function(frm,cdt,cdn){
         var item = locals[cdt][cdn];
         frappe.call({

@@ -7,7 +7,6 @@
  "engine": "InnoDB",
  "field_order": [
   "item_details_column",
-  "item_no",
   "material_code",
   "materia_description",
   "plant",
@@ -17,7 +16,12 @@
   "amount",
   "discount",
   "taxable_amount",
-  "gst",
+  "sgst",
+  "sgst_value",
+  "cgst",
+  "cgst_value",
+  "igst",
+  "igst_value",
   "gst_value",
   "tcs_value",
   "net_value"
@@ -29,26 +33,23 @@
    "label": "Item Details"
   },
   {
-   "fieldname": "item_no",
-   "fieldtype": "Data",
-   "label": "Item No",
-   "options": "Item Detail"
-  },
-  {
    "fetch_from": "item_no.",
    "fieldname": "material_code",
-   "fieldtype": "Data",
-   "label": "Material Code"
+   "fieldtype": "Link",
+   "label": "Material Code",
+   "options": "Material Master"
   },
   {
+   "fetch_from": "material_code.material_description",
    "fieldname": "materia_description",
    "fieldtype": "Data",
    "label": "Materia Description"
   },
   {
    "fieldname": "plant",
-   "fieldtype": "Data",
-   "label": "Plant"
+   "fieldtype": "Link",
+   "label": "Plant",
+   "options": "Plant Master"
   },
   {
    "fieldname": "quantity",
@@ -56,6 +57,7 @@
    "label": "Quantity"
   },
   {
+   "fetch_from": "material_code.unit_of_measure",
    "fieldname": "unit",
    "fieldtype": "Data",
    "label": "Unit"
@@ -81,11 +83,6 @@
    "label": "Taxable Amount"
   },
   {
-   "fieldname": "gst",
-   "fieldtype": "Currency",
-   "label": "GST%"
-  },
-  {
    "fieldname": "gst_value",
    "fieldtype": "Currency",
    "label": "GST Value"
@@ -99,12 +96,42 @@
    "fieldname": "net_value",
    "fieldtype": "Currency",
    "label": "Net Value"
+  },
+  {
+   "fieldname": "sgst",
+   "fieldtype": "Currency",
+   "label": "SGST%"
+  },
+  {
+   "fieldname": "sgst_value",
+   "fieldtype": "Currency",
+   "label": "SGST Value"
+  },
+  {
+   "fieldname": "cgst",
+   "fieldtype": "Currency",
+   "label": "CGST%"
+  },
+  {
+   "fieldname": "cgst_value",
+   "fieldtype": "Currency",
+   "label": "CGST Value"
+  },
+  {
+   "fieldname": "igst",
+   "fieldtype": "Currency",
+   "label": "IGST%"
+  },
+  {
+   "fieldname": "igst_value",
+   "fieldtype": "Currency",
+   "label": "IGST Value"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-09 16:18:49.825825",
+ "modified": "2023-12-14 12:32:43.797821",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Item",

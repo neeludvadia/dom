@@ -187,7 +187,7 @@
    "default": "0",
    "fieldname": "payment_confirm_",
    "fieldtype": "Check",
-   "label": "Payment Confirm ?",
+   "label": "Payment Terms Confirm ?",
    "permlevel": 1
   },
   {
@@ -235,7 +235,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-13 23:46:01.940016",
+ "modified": "2023-12-14 11:29:21.914377",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Creation",
