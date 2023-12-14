@@ -3,6 +3,7 @@
 let value;
 let pan;
 let tcs;
+let a = true;
 
 function calculateAmount(frm, cdt, cdn) {
     var item = locals[cdt][cdn];
@@ -11,23 +12,25 @@ function calculateAmount(frm, cdt, cdn) {
     var amount = qty * rate;
     var discount=item.discount;
     var taxable_amount = amount - ((amount * discount)/100);
-
+    let net_amount = item.net_value;
     //var gst=item.gst;
     var sgstpercentage=item.sgst;
     var cgstpercentage=item.cgst;
     var igstpercentage=item.igst;
-    console.log(igstpercentage);
+    //console.log(igstpercentage);
     var sgstvalue=((taxable_amount * sgstpercentage)/100);
     var cgstvalue=((taxable_amount * cgstpercentage)/100);
     var igstvalue=((taxable_amount * igstpercentage)/100);
-    //console.log(sgstvalue);
+    console.log(sgstvalue,cgstvalue);
     frappe.model.set_value(cdt, cdn, 'sgst_value', sgstvalue);
     frappe.model.set_value(cdt, cdn, 'cgst_value', cgstvalue);
     frappe.model.set_value(cdt, cdn, 'igst_value', igstvalue);
-    var gst=sgstvalue+cgstvalue+igstvalue;
+    var gst = sgstvalue + cgstvalue + igstvalue;
     frappe.model.set_value(cdt, cdn, 'gst_value', gst);
     
-    let net_amount= taxable_amount + cgstvalue + sgstvalue + igstvalue;
+    net_amount= taxable_amount + cgstvalue + sgstvalue + igstvalue;
+    console.log(net_amount)
+
     //console.log("net_amount",net_amount)
     frappe.model.set_value(cdt, cdn, 'amount', amount);
     frappe.model.set_value(cdt, cdn, 'taxable_amount', taxable_amount);
@@ -39,8 +42,7 @@ function calculateAmount(frm, cdt, cdn) {
         let ttl_itms_cgst_value = 0;
         let ttl_itms_igst_value = 0;
         $.each(frm.doc.item_details,  function(i,  d) {
-            ttl_itms_netamount += flt(d.net_amount);
-            //console.log("helo",ttl_itms_netamount);
+            ttl_itms_netamount += flt(d.net_value);
             ttl_itms_sgst_value += flt(d.sgst_value);
             ttl_itms_cgst_value += flt(d.cgst_value);
             ttl_itms_igst_value += flt(d.igst_value);
@@ -60,6 +62,7 @@ function calculateAmount(frm, cdt, cdn) {
 frappe.ui.form.on("Sales Order Item", {
     quantity: function(frm,cdt,cdn) {
         calculateAmount(frm, cdt, cdn);
+
     },
     
     rate: function(frm,cdt,cdn) {
@@ -71,10 +74,9 @@ frappe.ui.form.on("Sales Order Item", {
         calculateAmount(frm, cdt, cdn);
     },
 
-    onload:{
     plant: function(frm,cdt,cdn){
         var item = locals[cdt][cdn];
-        console.log(frm.doc.bill_to_party)
+        //console.log(frm.doc.bill_to_party)
         frappe.call({
             method: 'domesticordermanagement.domesticordermanagement.doctype.quotation.quotation.get_states_code',
             args:{
@@ -120,57 +122,7 @@ frappe.ui.form.on("Sales Order Item", {
                 
             }
         })
-    }},
-
-    // plant: function(frm,cdt,cdn){
-    //     var item = locals[cdt][cdn];
-    //     console.log(frm.doc.bill_to_party)
-    //     frappe.call({
-    //         method: 'domesticordermanagement.domesticordermanagement.doctype.quotation.quotation.get_states_code',
-    //         args:{
-    //             'plantName':item.plant,
-    //             'billToParty':frm.doc.bill_to_party,
-    //         },
-    //         callback: function(r){
-    //             if(r.message){
-    //                 frappe.call({
-    //                     method: 'frappe.client.get_value',
-    //                     args:{
-    //                         doctype:'HSN Master',
-    //                         filters:{'name':item.hsn_code},
-    //                         fieldname:[
-    //                             'cgstp',
-    //                             'sgstp'
-    //                         ]
-    //                     },
-    //                     callback:function(r){
-    //                         frappe.model.set_value(cdt, cdn, 'cgst', r.message.cgstp);
-    //                         console.log(r.message.cgstp)
-    //                         frappe.model.set_value(cdt, cdn, 'sgst', r.message.sgstp);
-    //                         calculateAmount(frm, cdt, cdn);
-    //                     }
-    //                 }) 
-    //             }
-    //             else{
-    //                 frappe.call({
-    //                     method: 'frappe.client.get_value',
-    //                     args:{
-    //                         doctype:'HSN Master',
-    //                         filters:{'name':item.hsn_code},
-    //                         fieldname:[
-    //                             'igstp'
-    //                         ]
-    //                     },
-    //                     callback:function(r){
-    //                         frappe.model.set_value(cdt, cdn, 'igst', r.message.igstp);
-    //                         calculateAmount(frm, cdt, cdn);
-    //                     }
-    //                 })
-    //             }
-                
-    //         }
-    //     })
-    // },
+    },
     
     
     material_code: function(frm,cdt,cdn){
@@ -272,9 +224,10 @@ frappe.ui.form.on("Sales Order Creation", {
 
     
     quotation_no(data){
-        
-        getvalues(data);   
-
+       if(a){ 
+        getvalues(data);
+        a = false;   
+    }
     },
     });
     
@@ -289,7 +242,7 @@ let getvalues = (data)=>{
             'quotationno':data.doc.quotation_no
         },
         callback: function(r) {
-
+            console.log(r.message[0])
             for  (value in r.message) {
             //console.log(r.message)   
             var child = cur_frm.add_child('item_details');
@@ -309,9 +262,11 @@ let getvalues = (data)=>{
             frappe.model.set_value(child.doctype, child.name, 'sgst',r.message[value].sgst_)
             frappe.model.set_value(child.doctype, child.name, 'cgst',r.message[value].cgst_)
             frappe.model.set_value(child.doctype, child.name, 'igst',r.message[value].igst_)
-            cur_frm.refresh_field('item_details') 
+            frappe.model.set_value(child.doctype, child.name, 'hsn_code',r.message[value].hsn_code)
+            // cur_frm.refresh_field('item_details') 
             }
-       
+            cur_frm.refresh_field('item_details') 
+            
             data.doc.item_details.forEach(function(row) {
             
                 value = row.gst_value + row.taxable_amount
