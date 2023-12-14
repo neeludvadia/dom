@@ -10,6 +10,7 @@
   "order_category",
   "purchase_order_no",
   "bill_to_party",
+  "customer_name",
   "billto_address",
   "sales_person",
   "status",
@@ -167,7 +168,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nSubmit"
+   "options": "Draft\nSubmit",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -178,12 +180,18 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "sales_order_no.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Read Only",
+   "label": "Customer Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-08 14:37:59.148966",
+ "modified": "2023-12-12 15:06:16.249017",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Invoice",

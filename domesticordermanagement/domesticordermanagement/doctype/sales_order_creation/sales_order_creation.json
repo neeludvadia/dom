@@ -15,11 +15,15 @@
   "purchase_order_no",
   "bill_to_party",
   "bill_to_address",
+  "customer_name",
   "sales_person",
+  "sgst_value",
+  "cgst_value",
   "payment_terms",
   "payment_confirm_",
   "fg_stock_available_",
   "status",
+  "currency",
   "_column",
   "so_date",
   "distribution_channel",
@@ -29,8 +33,6 @@
   "delivery_date",
   "pricing_date",
   "total_amount",
-  "sgst_value",
-  "cgst_value",
   "igst_value",
   "section_break_newo",
   "item_details",
@@ -142,25 +144,29 @@
    "fetch_from": "quotation_no.total_amount",
    "fieldname": "total_amount",
    "fieldtype": "Currency",
-   "label": "Total Amount"
+   "label": "Total Amount",
+   "options": "currency"
   },
   {
    "fetch_from": "quotation_no.sgst_value",
    "fieldname": "sgst_value",
    "fieldtype": "Currency",
-   "label": "SGST Value"
+   "label": "SGST Value",
+   "options": "currency"
   },
   {
    "fetch_from": "quotation_no.cgst_value",
    "fieldname": "cgst_value",
    "fieldtype": "Currency",
-   "label": "CGST Value"
+   "label": "CGST Value",
+   "options": "currency"
   },
   {
    "fetch_from": "quotation_no.igst_value",
    "fieldname": "igst_value",
    "fieldtype": "Currency",
-   "label": "IGST Value"
+   "label": "IGST Value",
+   "options": "currency"
   },
   {
    "fieldname": "item_details",
@@ -195,7 +201,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nCC Team Approved\nCC Team Pending\nPPIC Team Approved\nPPIC Team Pending\nApproved\nReject"
+   "options": "Draft\nCC Team Approved\nCC Team Pending\nPPIC Team Approved\nPPIC Team Pending\nApproved\nReject",
+   "read_only": 1
   },
   {
    "default": "Today",
@@ -212,12 +219,23 @@
    "options": "Sales Order Creation",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Read Only",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Select",
+   "label": "Currency",
+   "options": "INR"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-08 14:20:59.258358",
+ "modified": "2023-12-13 23:46:01.940016",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Sales Order Creation",

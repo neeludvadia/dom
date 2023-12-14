@@ -172,33 +172,43 @@ frappe.ui.form.on("Item Detail", {
 frappe.ui.form.on("Quotation",{
     onload(frm){
         frm.doc.sales_person = frappe.session.user_fullname;
+        frm.set_value('valid_from', frm.doc.quotation_date)
+        frm.refresh_field('valid_from')
     },
-
+  
     delivery_date(frm){
         if( frm.doc.delivery_date <= frm.doc.quotation_date ){
-            frappe.msgprint(__(" Date validation error"));
+            frappe.msgprint((" Delivery date should be greater than quotation date "));
             frappe.validated = false;
+            frm.refresh_field('delivery_date');
             //   frm.set_value('delivery_date','');
         }
-        },
+    },
 
-        pricing_date(frm){
-            if( frm.doc.pricing_date <= frm.doc.quotation_date || frm.doc.pricing_date >= frm.doc.delivery_date ){
-                frappe.msgprint(__(" Date validation error"));
-                frappe.validated = false;
-                //   frm.set_value('delivery_date','');
-            }
-            },
+    pricing_date(frm){
+        if( frm.doc.pricing_date < frm.doc.quotation_date || frm.doc.pricing_date > frm.doc.delivery_date ){
+            frappe.msgprint(("Pricing date should be greater than quotation date and less than delivery date"));
+            frappe.validated = false;
+            frm.refresh_field('pricing_date');
+        }
+    },
 
-            purchase_order_date(frm){
-                if( frm.doc.purchase_order_date >= frm.doc.quotation_date){
-                    frappe.msgprint(__(" Date validation error"));
-                    frappe.validated = false;
-                    //   frm.set_value('delivery_date','');
-                }
-                },
+    purchase_order_date(frm){
+        if( frm.doc.purchase_order_date >= frm.doc.quotation_date){
+            frappe.msgprint((" Purchase order date should be less than quotation date"));
+            frappe.validated = false;
+            frm.refresh_field('purchase_order_date');
+            //   frm.set_value('delivery_date','');
+        }
+    },
             
-   
+    valid_to(frm){
+        if( frm.doc.valid_to <= frm.doc.quotation_date){
+            frm.refresh_field("valid_to");
+            frappe.throw(("Valid From date should be greater than quotation date"));
+            
+        }
+    },
 
     bill_to_party(frm){
         frm.call('get_customer_billing_address_details').then((r)=>{
@@ -210,7 +220,8 @@ frappe.ui.form.on("Quotation",{
                 console.log(msg1);
             }
             frm.set_df_property('bill_to_address', 'options',msg1);
-            frm.refresh_field('bill_to_address');
+            // frm.refresh_field('bill_to_address');
+            //frm.set_value('bill_to_address', cur_frm.doc.bill_to_address)
         })
     },
     ship_to_party(frm){
@@ -223,25 +234,36 @@ frappe.ui.form.on("Quotation",{
                 console.log(msg1);
             }
             frm.set_df_property('ship_to_address', 'options',msg1);
-            frm.refresh_field('ship_to_address');
+            // frm.refresh_field('ship_to_address');
+            //frm.set_value('bill_to_address', cur_frm.doc.bill_to_address)
         })
     },
     refresh(frm){
-        console.log(frm.doc.status);
-        if ((frappe.user_roles[0]=="Order Punching Team" && frm.doc.status== "Approved"))
-        {
-        
-        frm.add_custom_button("Create Sales Order",()=>{
-            frappe.set_route("Form", "sales-order-creation","new-sales-order-creation");
-            frappe.ui.form.on("Sales Order Creation",{
-                onload:function(data){
-                    data.set_value("quotation_no", frm.doc.name); 
-                }
-            })
-        })
      
+         if ((frappe.user_roles[0]==="Order Punching Team" && frm.doc.status==="Approved")){
+            //flag = frappe.db.exists("Sales Order Creation", {'name': 'SO/0046'})
+            // flag = frappe.db.exists("Sales Order Creation", "SO/0046", cache=True)
+            // flag.then((value)=>{
+            //     console.log(value);
+            // })
+            // console.log(flag)
+            // if(!value){
+            // flag = frappe.db.exists("Sales Order Creation", frm.doc.name, cache=True)
+            // flag.then((value)=>{
+            //     console.log(value)
+            // })
+            // console.log(flag);
+            // quoNo = 'QT/0078';
+            // flag = frappe.db.exists('Sales Order Creation', {'quotation_no':`${quoNo}`}).then((value)=>{console.log(value);});
+            frm.add_custom_button("Create Sales Order",()=>{
+                frappe.set_route("Form", "sales-order-creation","new-sales-order-creation");
+                frappe.ui.form.on("Sales Order Creation",{
+                    onload:function(data){
+                        data.set_value("quotation_no", frm.doc.name); 
+                    }
+                })
+            })
     }
-    frm.remove_custom_button();
-     }
+    }
 })
 

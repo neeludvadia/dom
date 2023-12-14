@@ -2,6 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Invoice", {
+
+    
 	sales_order_no(data) {
         frappe.call({
             method: 'domesticordermanagement.domesticordermanagement.doctype.invoice.invoice.get_some_details',

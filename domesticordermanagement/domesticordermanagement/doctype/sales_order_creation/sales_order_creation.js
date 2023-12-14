@@ -21,7 +21,6 @@ frappe.ui.form.on("Sales Order Creation", {
                 ]
             },
             callback: function(r) {
-               
                 let pan = r.message.pan;
                 console.log(pan)
                 data.doc.item_details.forEach(function(row) {
@@ -59,6 +58,27 @@ frappe.ui.form.on("Sales Order Creation", {
     }
     },
 
+    bill_to_party(frm){
+        frappe.call({
+            method: 'frappe.client.get_value',
+            
+            args: {
+                'doctype': 'Customer Master',
+                'filters': {"name": cur_frm.doc.bill_to_party},
+                'fieldname': [
+                    'customer_name'
+                ]
+            },
+            callback: function(r) {
+                console.log(r.message.customer_name)
+                frm.set_value('customer_name',r.message.customer_name)
+                
+                if (!r.exc) {
+                    
+                }
+            }
+        })
+    },
 
 
     

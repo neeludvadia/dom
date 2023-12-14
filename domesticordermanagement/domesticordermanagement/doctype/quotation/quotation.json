@@ -11,23 +11,26 @@
  "field_order": [
   "order_category",
   "purchase_order_no",
+  "purchase_order_date",
   "bill_to_party",
   "bill_to_address",
   "delivery_date",
   "delivery_terms",
+  "cgst_value",
   "sgst_value",
-  "igst_value",
   "sales_person",
+  "currency",
   "column_break_mbxi",
   "quotation_date",
-  "distribution_channel",
-  "purchase_order_date",
+  "pricing_date",
   "ship_to_party",
   "ship_to_address",
+  "distribution_channel",
   "payment_terms",
-  "pricing_date",
-  "cgst_value",
+  "igst_value",
   "total_amount",
+  "valid_from",
+  "valid_to",
   "section_break_ongf",
   "table_detail",
   "remarks",
@@ -81,7 +84,6 @@
    "fieldname": "distribution_channel",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Distribution Channel",
    "options": "Distribution Channel",
    "reqd": 1
@@ -140,35 +142,40 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nReporting Head Pending\nReporting Head Approved\nOrder Punching Team Pending\nOrder Punching Team Approve\nPending\nApproved\nReject\nCC Team Pending"
+   "options": "Draft\nPending Approval : Reporting Head\nReporting Head Approval Pending\nReporting Head Pending\nReporting Head Approved\nOrder Punching Team Pending\nOrder Punching Team Approve\nPending\nApproved\nReject\nCC Team Pending",
+   "read_only": 1
   },
   {
    "fieldname": "total_amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Total Amount",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency"
   },
   {
    "fieldname": "sgst_value",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "SGST Value",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency"
   },
   {
    "fieldname": "cgst_value",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "CGST Value",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency"
   },
   {
    "fieldname": "igst_value",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "IGST Value",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "currency"
   },
   {
    "fieldname": "amended_from",
@@ -191,12 +198,31 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Sales Person"
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Select",
+   "label": "Currency",
+   "options": "INR\nUSD"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Data",
+   "label": "Valid From",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid To",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-09 17:35:59.446325",
+ "modified": "2023-12-14 10:58:34.353978",
  "modified_by": "Administrator",
  "module": "DomesticOrderManagement",
  "name": "Quotation",
