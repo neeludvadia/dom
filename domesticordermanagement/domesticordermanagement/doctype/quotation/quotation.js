@@ -16,11 +16,11 @@ function calculateAmount(frm, cdt, cdn) {
     var sgstpercentage=item.sgst_;
     var cgstpercentage=item.cgst_;
     var igstpercentage=item.igst_;
-    console.log(sgstpercentage);
+    //console.log(sgstpercentage);
     var sgstvalue=((taxable_amount * sgstpercentage)/100);
     var cgstvalue=((taxable_amount * cgstpercentage)/100);
     var igstvalue=((taxable_amount * igstpercentage)/100);
-    console.log(sgstvalue);
+    //console.log(sgstvalue);
     frappe.model.set_value(cdt, cdn, 'sgst_value', sgstvalue);
      frappe.model.set_value(cdt, cdn, 'cgst_value', cgstvalue);
     frappe.model.set_value(cdt, cdn, 'igst_value', igstvalue);
@@ -30,7 +30,7 @@ function calculateAmount(frm, cdt, cdn) {
     
    
     let net_amount= taxable_amount + cgstvalue + sgstvalue + igstvalue;
-    console.log("net_amount",net_amount)
+    //console.log("net_amount",net_amount)
     frappe.model.set_value(cdt, cdn, 'amount', amount);
     frappe.model.set_value(cdt, cdn, 'taxable_amount', taxable_amount);
     frappe.model.set_value(cdt, cdn, 'net_amount',net_amount);
@@ -42,15 +42,15 @@ function calculateAmount(frm, cdt, cdn) {
         let ttl_itms_igst_value = 0;
         $.each(frm.doc.table_detail,  function(i,  d) {
             ttl_itms_netamount += flt(d.net_amount);
-            console.log("helo",ttl_itms_netamount);
+            //console.log("helo",ttl_itms_netamount);
             ttl_itms_sgst_value += flt(d.sgst_value);
             ttl_itms_cgst_value += flt(d.cgst_value);
             ttl_itms_igst_value += flt(d.igst_value);
             
         });
-        console.log("hello");
+        //console.log("hello");
         frm.set_value('total_amount',ttl_itms_netamount)
-        console.log(ttl_itms_netamount);
+        //console.log(ttl_itms_netamount);
         frm.set_value('sgst_value',ttl_itms_sgst_value)
         frm.set_value('cgst_value',ttl_itms_cgst_value)
         frm.set_value('igst_value',ttl_itms_igst_value)
@@ -96,7 +96,7 @@ frappe.ui.form.on("Item Detail", {
                         },
                         callback:function(r){
                             frappe.model.set_value(cdt, cdn, 'cgst_', r.message.cgstp);
-                            console.log('hello')
+                            //console.log('hello')
                             frappe.model.set_value(cdt, cdn, 'sgst_', r.message.sgstp);
                             calculateAmount(frm, cdt, cdn);
                         }
@@ -139,7 +139,7 @@ frappe.ui.form.on("Item Detail", {
                 ]
             },
             callback: function(r) {
-                console.log(r.message.cgstp)
+               // console.log(r.message.cgstp)
                 
                 
                 if (!r.exc) {
@@ -157,10 +157,22 @@ frappe.ui.form.on("Item Detail", {
                 'pricing_date':cur_frm.doc.pricing_date,
             },
             callback: function(r){
-                console.log(r.message);
-                frappe.model.set_value(cdt, cdn, 'rate', '');
-                frappe.model.set_value(cdt, cdn, 'rate', r.message[0][0]);
-                calculateAmount(frm, cdt, cdn);
+                if(r.message.length > 0){
+                    frappe.model.set_value(cdt, cdn, 'rate', '');
+                    frappe.model.set_value(cdt, cdn, 'rate', r.message[0][0]);
+                    calculateAmount(frm, cdt, cdn);
+                }
+                else{
+                    frappe.call({
+                        method: 'domesticordermanagement.domesticordermanagement.doctype.quotation.quotation.get_rate_from_MaterialMaster',
+                        args:{
+                            'material_code':item.material_code,
+                        },
+                        callback: function(r){
+                            frappe.model.set_value(cdt, cdn, 'rate', r.message);
+                        }
+                    })
+                }
             }
         })
         
@@ -181,7 +193,7 @@ frappe.ui.form.on("Quotation",{
             frappe.msgprint((" Delivery date should be greater than quotation date "));
             frappe.validated = false;
             frm.refresh_field('delivery_date');
-            //   frm.set_value('delivery_date','');
+            frm.set_value('delivery_date','');
         }
     },
 
@@ -189,7 +201,7 @@ frappe.ui.form.on("Quotation",{
         if( frm.doc.pricing_date < frm.doc.quotation_date || frm.doc.pricing_date > frm.doc.delivery_date ){
             frappe.msgprint(("Pricing date should be greater than quotation date and less than delivery date"));
             frappe.validated = false;
-            frm.refresh_field('pricing_date');
+            frm.set_value('pricing_date','');
         }
     },
 
@@ -197,7 +209,8 @@ frappe.ui.form.on("Quotation",{
         if( frm.doc.purchase_order_date >= frm.doc.quotation_date){
             frappe.msgprint((" Purchase order date should be less than quotation date"));
             frappe.validated = false;
-            frm.refresh_field('purchase_order_date');
+            frm.refresh_field('purchase_order_date')
+            frm.set_value('purchase_order_date','');
             //   frm.set_value('delivery_date','');
         }
     },
@@ -217,7 +230,7 @@ frappe.ui.form.on("Quotation",{
 
             for(let i=0;i<r.message.length;i++){
                 msg1.push(`${r.message[i]}`)
-                console.log(msg1);
+                //console.log(msg1);
             }
             frm.set_df_property('bill_to_address', 'options',msg1);
             // frm.refresh_field('bill_to_address');
@@ -231,7 +244,7 @@ frappe.ui.form.on("Quotation",{
 
             for(let i=0;i<r.message.length;i++){
                 msg1.push(`${r.message[i]}`)
-                console.log(msg1);
+                //console.log(msg1);
             }
             frm.set_df_property('ship_to_address', 'options',msg1);
             // frm.refresh_field('ship_to_address');

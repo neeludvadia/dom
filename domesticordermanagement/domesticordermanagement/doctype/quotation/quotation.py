@@ -57,7 +57,12 @@ def get_details_for_rate(distribution_channel,bill_to_party,material_code,pricin
 									material_code = '{material_code}' AND
 									'{pricing_date}' BETWEEN valid_from AND valid_to	
 						""")
-	return data	
+	return data
+
+@frappe.whitelist()
+def get_rate_from_MaterialMaster(material_code):
+	data = frappe.db.get_value('Material Master', {'name': material_code}, ['standard_price'])
+	return data		
 
 @frappe.whitelist()
 def get_states_code(plantName, billToParty):
